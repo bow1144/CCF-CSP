@@ -1,4 +1,5 @@
 # E.魔数
+> 刚刚得到噩耗，不能用python
 [题目链接](https://www.acwing.com/problem/content/description/3289/)
 
 本题使用`python3`进行大数处理，但不确定考试环境中是否可以使用线段树扩展
