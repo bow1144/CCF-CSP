@@ -28,6 +28,7 @@ for _ in range(q):
 ```
 
 ## AC100：惰性线段树：悬而未决
+> 不对，好像不能开惰性线段树，这题悬而未决
 ```
 class SegmentTree:
     def __init__(self, n):
