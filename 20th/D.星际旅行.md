@@ -26,7 +26,7 @@
 * 切线距离：勾股定理
 * 弧长：由余弦定理+三角关系计算得弧角
 
-## 程序
+## 程序：AC85
 ### 1. 距离计算
 ```
 double distance(vector<double>& a, vector<double>& b, double R) {
