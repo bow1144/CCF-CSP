@@ -99,4 +99,57 @@ private:
         tree[node] = (tree[node*2] + tree[node*2+1]) % mod;
     }
 };
+
+int n, m;
+
+int main(void) {
+    scanf("%d %d", &n, &m);
+    
+    if(n <= 1000) { eazy(m, n); return 0; }
+    
+    SegmentTree x(n+5);
+    SegmentTree y(n+5);
+    SegmentTree z(n+5);
+    
+    while(m--) {
+        int op;
+        scanf("%d", &op);
+        
+        // 动力增强
+        if(op == 1) {
+            int l, r, Xadd, Yadd, Zadd;
+            scanf("%d %d %d %d %d", &l, &r, &Xadd, &Yadd, &Zadd);
+            x.update_add(l, r, Xadd);
+            y.update_add(l, r, Yadd);
+            z.update_add(l, r, Zadd);
+        }
+        
+        // 动力强化
+        else if(op == 2) {
+            int l, r, mul;
+            scanf("%d %d %d", &l, &r, &mul);
+            x.update_mul(l, r, mul);
+            y.update_mul(l, r, mul);
+            z.update_mul(l, r, mul);
+        }
+        
+        else if(op == 3) {
+            int l, r;
+            scanf("%d %d", &l, &r);
+            continue;
+        }
+        
+        // 动力查询
+        else if (op == 4) {
+            int l, r;
+            scanf("%d %d", &l, &r);
+            ll X = (x.query(l, r) % mod) * (x.query(l, r) % mod) % mod;
+            ll Y = (y.query(l, r) % mod) * (y.query(l, r) % mod) % mod;
+            ll Z = (z.query(l, r) % mod) * (z.query(l, r) % mod) % mod;
+            ll sum = (X + Y + Z) % mod;
+            printf("%lld\n", sum);
+        }
+    }
+    return 0;
+}
 ```
